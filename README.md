@@ -11,7 +11,7 @@ yarn add git+https://github.com/iAverages/cf-b2.git
 ```
 
 ```ts
-import { BackblazeB2 } from "cf-b2";
+import { BackblazeB2 } from "cloudflare-b2/src";
 
 interface Env {}
 
@@ -23,7 +23,7 @@ const b2 = new BackblazeB2({
 export default {
     fetch: async (request: Request, env: Env, ctx: ExecutionContext) => {
         await b2.authorizeAccount();
-        return new Response(b2.listFileNames());
+        return new Response(JSON.stringify(await b2.getUploadUrl("some bucket ID")));
     },
 
     // We can register this cron handler to keep the b2 auth config
