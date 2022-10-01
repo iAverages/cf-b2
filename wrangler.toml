@@ -1,0 +1,3 @@
+name = "cf-b2"
+compatibility_date = "2022-09-06"
+main = "src/BackblazeB2.ts"
