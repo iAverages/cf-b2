@@ -112,7 +112,17 @@ export interface ListBuckets {
     bucketTypes?: string;
 }
 
-export interface ListBucketsResponse {
+export interface ListBucketsResponse {}
+
+export interface ListFileNames {
+    bucketId: string;
+    delimiter?: string;
+    maxFileCount?: number;
+    prefix?: string;
+    startFileName?: string;
+}
+
+export interface ListFileNamesResponse {
     files: File[];
     nextFileName: string;
 }
