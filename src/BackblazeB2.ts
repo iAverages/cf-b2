@@ -10,6 +10,7 @@ import {
     CopyPart,
     CopyPartResponse,
     ListBuckets,
+    ListBucketsResponse,
 } from "./interface";
 
 const KEY_EXPIRY = 72000;
@@ -162,7 +163,7 @@ export class BackblazeB2 {
         throw new Error("Not yet Implemented");
     }
     public listFileNames(params: any) {
-        return this.request<CopyFileResponse>(this.url("b2_list_file_names"), {
+        return this.request<ListBucketsResponse>(this.url("b2_list_file_names"), {
             method: HttpMethod.POST,
             body: JSON.stringify(params),
             headers: this.getAuthHeader(),
