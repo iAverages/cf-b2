@@ -122,6 +122,33 @@ export interface ListFileNames {
     startFileName?: string;
 }
 
+export interface File {
+    accountId: string;
+    action: string;
+    bucketId: string;
+    contentLength: number;
+    contentMd5?: string;
+    contentSha1: string;
+    contentType: string;
+    fileId: string;
+    fileInfo: Record<string, string>;
+    fileName: string;
+    fileRetention: {
+        isClientAuthorizedToRead: boolean;
+        value: string | null;
+    };
+    legalHold: {
+        isClientAuthorizedToRead: boolean;
+        value: string | null;
+    };
+    replicationStatus: "PENDING" | "COMPLETED" | "FAILED" | "REPLICA";
+    serverSideEncryption: {
+        algorithm: string | null;
+        mode: string | null;
+    };
+    uploadTimestamp: number;
+}
+
 export interface ListFileNamesResponse {
     files: File[];
     nextFileName: string;
