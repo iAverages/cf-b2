@@ -210,7 +210,7 @@ export class BackblazeB2 {
             headers: {
                 Authorization: this.uploadUrlConfig.authorizationToken,
                 "X-Bz-File-Name": fileName ?? file.name,
-                "Content-Type": file.type,
+                "Content-Type": "b2/x-auto",
                 "Content-Length": `${file.size}`,
                 "X-Bz-Content-Sha1": sha1,
             },
